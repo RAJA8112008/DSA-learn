@@ -34,6 +34,7 @@ int main(){
    st.push(80);
   sorted(st);
  while(!st.empty()){
-    cout<<st.top();
- }cout<<endl;
+    cout<<st.top()<<endl;
+    st.pop();
+ }
 }
