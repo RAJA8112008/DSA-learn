@@ -14,4 +14,7 @@ int main(){
         //removing
         st.pop();
       cout<<"Size of stack:"<<st.size()<<endl;
+      //top element is
+      cout<<"TOP elem:"<<st.top()<<endl;
+
 }
