@@ -1,20 +1,46 @@
 #include<iostream>
-#include<stack>
+
 using namespace std;
-int main(){
-    stack<int>st;
-    st.push(5);
-     st.push(6);
-      st.push(7);
-       st.push(7);
-        st.push(8);
-
-        //size of stack
-        cout<<"Size of stack:"<<st.size()<<endl;
-        //removing
-        st.pop();
-      cout<<"Size of stack:"<<st.size()<<endl;
-      //top element is
-      cout<<"TOP elem:"<<st.top()<<endl;
-
-}
+class stack{
+  public:
+  int *arr;
+  int size;
+  int top;
+  stack(int size){
+    arr=new int[size];
+    this->size=size;
+    top=-1;
+  }
+  void push(int data){
+    if(size-top>1){
+      top++;
+      arr[top]=data;
+    }else{
+      cout<<"stack overflow"<<endl;
+    }
+  }
+    void pop(){
+      if(top==-1){
+       cout<<"stack is underflow"<<endl;
+      }else{
+        top--;
+      }
+  }
+  int getTop(){
+    if(top==-1){
+      cout<<"Empty"<<endl;
+    }else{
+      return arr[top];
+    }
+  }
+  int getSize(){
+    return top+1;
+  }
+  bool isEmpty(){
+    if(top==-1){
+      return true;
+    }else{
+      return false;
+    }
+  }
+};
