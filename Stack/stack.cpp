@@ -55,6 +55,7 @@ int main(){
       cout<<s.getTop()<<" ";
       s.pop();
     }
+    cout<<"Size of stack:"<<s.getSize()<<endl;
     return 0;
   }
 
