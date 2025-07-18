@@ -1,44 +1,39 @@
 #include<iostream>
 #include<stack>
 using namespace std;
-
-void solve(stack<int>&s,int target){
-  if(s.empty()){
-    s.push(target);
-    return;
-  }
-  int topEle=s.top();
-  s.pop();
-  //recursion call
-  solve(s,target);
-  //bt
-  s.push(topEle);
-
+void insertbottom(stack<int>&st,int topelem){
+    //base condition
+    if(st.empty()||topelem<=st.top()){
+        st.push(topelem);
+        return;
+    }
+    int elem=st.top();
+    st.pop();
+    insertbottom(st,topelem);
+    st.push(elem);
 }
- void bottomElem(stack<int>&s){
-  if(s.empty()){
-    cout<<"Not available"<<endl;
-    return;
-  }
-  int target=s.top();
-  s.pop();
-  solve(s,target);
- }
+void sorted(stack<int>&st){
+     //base condition
+     if(st.empty()){
+        return;
+     }
+     //one case
+     int Topelem=st.top();
+     st.pop();
+     //function call
+     sorted(st);
+     insertbottom(st,Topelem);
+}
 int main(){
-  stack<int>s;
-  s.push(10);
-  s.push(20);
-  s.push(30);
-  s.push(40);
-  s.push(50);
-  s.push(60);
-  s.push(70);
-
- bottomElem(s);
-
- while(!s.empty()){
-  cout<<s.top()<<" ";
-  s.pop();
+   stack<int>st;
+   st.push(10);
+   st.push(55);
+   st.push(30);
+   st.push(60);
+   st.push(50);
+   st.push(80);
+  sorted(st);
+ while(!st.empty()){
+    cout<<st.top();
  }cout<<endl;
-
 }
