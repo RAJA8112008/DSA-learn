@@ -1,62 +1,80 @@
 #include<iostream>
-
 using namespace std;
 class stack{
   public:
   int *arr;
   int size;
-  int top;
+  int top1;
+  int top2;
+  //constrocture
   stack(int size){
-    arr=new int[size];
-    this->size=size;
-    top=-1;
+   arr=new int[size];
+   this->size=size;
+   top1=-1;
+   top2=size;
   }
-  void push(int data){
-    if(size-top>1){
-      top++;
-      arr[top]=data;
+  //functions
+  void push1(int data){
+     if(top2-top1==1){
+      cout<<"Overflow"<<endl;
+     }else{
+      top1++;
+      arr[top1]=data;
+     }
+  }
+  void pop1(){
+    if(top1==-1){
+      cout<<"underflow"<<endl;
     }else{
-      cout<<"stack overflow"<<endl;
+      top1--;
     }
   }
-    void pop(){
-      if(top==-1){
-       cout<<"stack is underflow"<<endl;
-      }else{
-        top--;
-      }
+    void push2(int data){
+ if(top2-top1==1){
+      cout<<"Overflow"<<endl;
+     }else{
+      top2--;
+      arr[top2]=data;
+     }
   }
-  int getTop(){
-    if(top==-1){
-      cout<<"Empty"<<endl;
-    }else{
-      return arr[top];
-    }
-  }
-  int getSize(){
-    return top+1;
-  }
-  bool isEmpty(){
-    if(top==-1){
-      return true;
-    }else{
-      return false;
-    }
-  }
-};
-int main(){
-    stack s(10);
-    s.push(20);
-    s.push(30);
-    s.push(40);
-    s.push(50);
-    s.push(60);
-    while(!s.isEmpty()){
-      cout<<s.getTop()<<" ";
-      s.pop();
-    }
-    cout<<"Size of stack:"<<s.getSize()<<endl;
-    return 0;
-  }
-
   
+  void pop2(){
+    if(top2==size){
+      cout<<"Underflow"<<endl;
+    }else{
+      top2++;
+    }
+  }
+    void print(){
+      cout<<endl;
+      cout<<"top1"<<top1<<endl;
+      cout<<"top2"<<top2<<endl;
+      for(int i=0;i<size;i++){
+        cout<<arr[i]<<" ";
+      }cout<<endl;
+    }
+  };
+int main(){
+stack s(10);
+s.push1(10);
+s.print();
+s.push1(20);
+s.print();
+s.push1(30);
+s.print();
+s.push1(40);
+s.print();
+s.push1(50);
+s.print();
+
+s.push2(100);
+s.print();
+s.push2(90);
+s.print();
+s.push2(80);
+s.print();
+s.push2(70);
+s.print();
+s.push2(60);
+s.print();
+}
