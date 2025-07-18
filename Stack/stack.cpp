@@ -2,20 +2,28 @@
 #include<stack>
 using namespace std;
 
-
-void midsearch(stack<int>&s,int &totalsize){
-    
-  //base conition
-  if(s.size()==totalsize/2+1){
-    cout<<"Middle elem is:"<<s.top()<<endl;
+void solve(stack<int>&s,int target){
+  if(s.empty()){
+    s.push(target);
     return;
   }
-int temp=s.top();
-s.pop();
-   midsearch(s,totalsize);
-   s.push(temp);
+  int topEle=s.top();
+  s.pop();
+  //recursion call
+  solve(s,target);
+  //bt
+  s.push(topEle);
 
 }
+ void bottomElem(stack<int>&s){
+  if(s.empty()){
+    cout<<"Not available"<<endl;
+    return;
+  }
+  int target=s.top();
+  s.pop();
+  solve(s,target);
+ }
 int main(){
   stack<int>s;
   s.push(10);
@@ -25,9 +33,12 @@ int main(){
   s.push(50);
   s.push(60);
   s.push(70);
-   s.push(80);
-  s.push(90);
-  s.push(100);
-int totalsize=s.size();
-  midsearch(s,totalsize);
+
+ bottomElem(s);
+
+ while(!s.empty()){
+  cout<<s.top()<<" ";
+  s.pop();
+ }cout<<endl;
+
 }
