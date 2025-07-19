@@ -1,40 +1,26 @@
 #include<iostream>
+#include<vector>
 #include<stack>
 using namespace std;
-void insertbottom(stack<int>&st,int topelem){
-    //base condition
-    if(st.empty()||topelem<=st.top()){
-        st.push(topelem);
-        return;
-    }
-    int elem=st.top();
-    st.pop();
-    insertbottom(st,topelem);
-    st.push(elem);
-}
-void sorted(stack<int>&st){
-     //base condition
-     if(st.empty()){
-        return;
-     }
-     //one case
-     int Topelem=st.top();
-     st.pop();
-     //function call
-     sorted(st);
-     insertbottom(st,Topelem);
-}
 int main(){
-   stack<int>st;
-   st.push(10);
-   st.push(55);
-   st.push(30);
-   st.push(60);
-   st.push(50);
-   st.push(80);
-  sorted(st);
- while(!st.empty()){
-    cout<<st.top()<<endl;
-    st.pop();
- }
+   vector<int>v;
+    v.push_back(2);
+    v.push_back(1);
+    v.push_back(4);
+    v.push_back(3);
+    stack<int>st;
+    st.push(-1);
+    vector<int>ans(v.size());
+     for(int i= v.size()-1;i>=0;i--){
+      int temp=v[i];
+      while(temp<st.top()){
+         st.pop();
+      }
+      ans[i]=st.top();
+      st.push(temp);
+     }
+     for(int i=0;i<ans.size();i++){
+      cout<<ans[i]<<" ";
+     }
+     cout<<endl;
 }
