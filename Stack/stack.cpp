@@ -10,6 +10,9 @@ int main(){
     v.push_back(3);
     stack<int>st;
     st.push(-1);
+
+
+    
     vector<int>ans(v.size());
      for(int i= v.size()-1;i>=0;i--){
       int temp=v[i];
