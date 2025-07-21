@@ -62,4 +62,5 @@ int main(){
 cout<<"Size of Queue:"<<q.getSize()<<endl;
 q.pop();
 cout<<"Size of Queue:"<<q.getSize()<<endl;
+cout<<"Front of Queue:"<<q.getFront()<<endl;
 }
