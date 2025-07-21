@@ -60,4 +60,6 @@ int main(){
    q.push(20);
    q.push(25);
 cout<<"Size of Queue:"<<q.getSize()<<endl;
+q.pop();
+cout<<"Size of Queue:"<<q.getSize()<<endl;
 }
