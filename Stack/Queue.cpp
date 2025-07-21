@@ -43,7 +43,7 @@ q.push(5);
 q.push(8);
 q.push(6);
 q.push(1);
-reverseK(q,3);
+reverseK(q,4);
 cout<<"Printing the queue"<<endl;
 while(!q.empty()){
   cout<<q.front()<<" ";
