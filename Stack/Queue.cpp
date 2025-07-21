@@ -26,7 +26,7 @@ void reverseK(queue<int>&q,int k){
     }
     // again enter in queue remaining elements
     count=0;
-    while(!q.empty()){
+    while(!q.empty() && n-k!=0){
       int element=q.front();
       q.pop();
       q.push(element);
@@ -43,7 +43,7 @@ q.push(5);
 q.push(8);
 q.push(6);
 q.push(1);
-reverseK(q,4);
+reverseK(q,5);
 cout<<"Printing the queue"<<endl;
 while(!q.empty()){
   cout<<q.front()<<" ";
