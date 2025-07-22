@@ -1,88 +1,23 @@
 #include<iostream>
 #include<queue>
-#include<stack>
 using namespace std;
-// void reverseK(queue<int>&q,int k){
-//   stack<int>st;
-//   int count=0;
-//   int n=q.size();
-//    if(k==0 ||k>n){
-//     return;
-//    }
-//    while(!q.empty()){
-//     int element=q.front();
-//     q.pop();
-//     st.push(element);
-//     count++;
-//     if(count==k){ 
-//       break;
-//     }
-//    }
-//    //stack to queue
-//       while(!st.empty()){
-//       int element=st.top();
-//       st.pop();
-//       q.push(element);
-//     }
-//     // again enter in queue remaining elements
-//     count=0;
-//     while(!q.empty() && n-k!=0){
-//       int element=q.front();
-//       q.pop();
-//       q.push(element);
-//       count++;
-//       if(count==n-k){
-//         return;
-//       }
-//     }
-// };
-
- void interleaveQueue(queue<int>&q){
-  int n=q.size();
-  int k=n/2;
-  int count=0;
-    queue<int>q2;
-    while(!q.empty()){
-     int element=q.front();
-     q.pop();
-     q2.push(element);
-     count++;
-     if(count==k){
-      break;
-     }
-    }
-    //interleave
-    while(!q.empty()&&!q2.empty()){
-      int first=q2.front();
-      q2.pop();
-      q.push(first);
-      int second=q.front();
-      q.pop();
-      q.push(second);
-      if(n&1){
-       int element= q.front();
+int  main(){
+  string str="aabc";
+  int freq[26]={0};
+  string ans="";
+  queue<char>q;
+ for(int i=0;i<str.length();i++){
+  char ch=str[i];
+  freq[ch-'a']++;
+  
+  q.push(ch);
+ }
+ while(!q.empty()){
+    if(freq[ch-'a']>1){
        q.pop();
-       q.push(element);
-      }
+    }else{
+      
     }
-}
-int main(){
-queue<int>q;
-q.push(1);
-q.push(2);
-q.push(3);
-q.push(4);
-q.push(5);
-q.push(6);
-q.push(7);
-q.push(8);
-// q.push(6);
-// q.push(1);
-interleaveQueue(q);
-cout<<"Printing the queue"<<endl;
-while(!q.empty()){
-  cout<<q.front()<<" ";
-  q.pop();
-}
-cout<<endl;
+ }
+
 }
