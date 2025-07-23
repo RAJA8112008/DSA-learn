@@ -1,23 +1,23 @@
 #include<iostream>
-#include<queue>
 using namespace std;
-int  main(){
-  string str="aabc";
-  int freq[26]={0};
-  string ans="";
-  queue<char>q;
- for(int i=0;i<str.length();i++){
-  char ch=str[i];
-  freq[ch-'a']++;
   
-  q.push(ch);
- }
- while(!q.empty()){
-    if(freq[ch-'a']>1){
-       q.pop();
-    }else{
+class node{
+   int data;
+   node* left=NULL;
+   node* right=NULL;
+   //constructor
+   node(int d){
+      this->data=d;
+      this->left=left;
+      this->right=right;
+   }
+};
+node* buildTree(node*data){
       
-    }
- }
 
-}
+   
+   }
+int main(){
+   node* root=NULL;
+   root=buildTree();
+};
