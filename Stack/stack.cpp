@@ -1,4 +1,5 @@
 #include<iostream>
+#include<queue>
 using namespace std;
 class node{
     public:
@@ -25,6 +26,24 @@ node* buildTree(){
    root->right=buildTree();
    return root;
 }
+ void levelOrderTravelsel(node*root){
+   queue<node*>q;
+   q.push(root);
+   //empty prcess
+   while(q.empty()){
+   node* temp=q.front();
+    q.pop();
+    cout<<temp->data<<" ";
+    q.pop();
+    if(temp->left){
+      q.push(temp->left);
+   }
+   if(temp->left){
+      q.push(temp->left);
+   }
+   }
+ }
+
 int main(){
   node* root=NULL;
   root=buildTree();
