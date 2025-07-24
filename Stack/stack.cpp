@@ -47,4 +47,7 @@ node* buildTree(){
 int main(){
   node* root=NULL;
   root=buildTree();
+  cout<<"Printing the tree"<<endl;
+  levelOrderTravelsel(root);
+  return 0;
 }
