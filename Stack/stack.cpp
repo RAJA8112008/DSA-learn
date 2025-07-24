@@ -30,7 +30,7 @@ node* buildTree(){
    queue<node*>q;
    q.push(root);
    //empty prcess
-   while(q.empty()){
+   while(!q.empty()){
    node* temp=q.front();
     q.pop();
     cout<<temp->data<<" ";
