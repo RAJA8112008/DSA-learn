@@ -51,21 +51,31 @@ node* buildTree(){
    }
  }
  }
- void inorder(node*root){
+//  void inorder(node*root){
+//    //base case
+//       if(root==NULL){
+//          return;
+//       }
+//       inorder(root->left);
+//       cout<<root->data<<" ";
+//       inorder(root->right);
+//   }
+void preorder(node*root){
    //base case
-      if(root==NULL){
-         return;
-      }
-      inorder(root->left);
-      cout<<root->data<<" ";
-      inorder(root->right);
-  }
+   if(root==NULL){
+      return;
+   }
+   //NLR
+   cout<<root->data<<" ";
+   preorder(root->left);
+   preorder(root->right);
+}
 int main(){
   node* root=NULL;
   root=buildTree();
   cout<<"Printing the tree"<<endl;
   levelOrderTravelsel(root);
-  cout<<"Inorder Arrangement :"<<endl;
-  inorder(root);
+  cout<<"Prenorder Arrangement :"<<endl;
+  preorder(root);
   return 0;
 }
