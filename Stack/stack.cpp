@@ -60,22 +60,23 @@ node* buildTree(){
 //       cout<<root->data<<" ";
 //       inorder(root->right);
 //   }
-void preorder(node*root){
+void postorder(node*root){
    //base case
    if(root==NULL){
       return;
    }
    //NLR
+   
+   postorder(root->left);
+   postorder(root->right);
    cout<<root->data<<" ";
-   preorder(root->left);
-   preorder(root->right);
 }
 int main(){
   node* root=NULL;
   root=buildTree();
   cout<<"Printing the tree"<<endl;
   levelOrderTravelsel(root);
-  cout<<"Prenorder Arrangement :"<<endl;
-  preorder(root);
+  cout<<"Postorder Arrangement :"<<endl;
+  postorder(root);
   return 0;
 }
