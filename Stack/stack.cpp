@@ -29,10 +29,17 @@ node* buildTree(){
  void levelOrderTravelsel(node*root){
    queue<node*>q;
    q.push(root);
-   //empty prcess
+   q.push(NULL);
+   //empty process
    while(!q.empty()){
    node* temp=q.front();
     q.pop();
+    if(temp==NULL){
+      cout<<endl;
+      if(!q.empty()){
+         q.push(NULL);
+      }
+    }else{
     cout<<temp->data<<" ";
 
     if(temp->left){
@@ -43,7 +50,7 @@ node* buildTree(){
    }
    }
  }
-
+ }
 int main(){
   node* root=NULL;
   root=buildTree();
