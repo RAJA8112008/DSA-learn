@@ -1,29 +1,31 @@
 #include<iostream>
-#include<vector>
-#include<stack>
 using namespace std;
-int main(){
-   vector<int>v;
-    v.push_back(2);
-    v.push_back(1);
-    v.push_back(4);
-    v.push_back(3);
-    stack<int>st;
-    st.push(-1);
-
-
-    
-    vector<int>ans(v.size());
-     for(int i= v.size()-1;i>=0;i--){
-      int temp=v[i];
-      while(temp<st.top()){
-         st.pop();
+class node{
+    public:
+    int data;
+    node* left;
+    node* right;
+    //constructor
+      node(int d){
+         this->data=d;
+      this->left=NULL;
+      this->right=NULL;
+     }
+};
+node* buildTree(){
+      int d;
+      cin>>d;
+      if(d==-1){
+         return NULL;
       }
-      ans[i]=st.top();
-      st.push(temp);
-     }
-     for(int i=0;i<ans.size();i++){
-      cout<<ans[i]<<" ";
-     }
-     cout<<endl;
+      node* root= new node(d);
+   cout<<"Enter the value of Left:"<<d<<endl;
+   root->left=buildTree();
+   cout<<"Enter the value of Right:"<<d<<endl;
+   root->right=buildTree();
+   return root;
+}
+int main(){
+  node* root=NULL;
+  root=buildTree();
 }
