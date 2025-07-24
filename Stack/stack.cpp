@@ -46,15 +46,26 @@ node* buildTree(){
       q.push(temp->left);
    }
    if(temp->right){
-      q.push(temp->right);
+      q.push(temp->left);
    }
    }
  }
  }
+ void inorder(node*root){
+   //base case
+      if(root==NULL){
+         return;
+      }
+      inorder(root->left);
+      cout<<root->data<<" ";
+      inorder(root->right);
+  }
 int main(){
   node* root=NULL;
   root=buildTree();
   cout<<"Printing the tree"<<endl;
   levelOrderTravelsel(root);
+  cout<<"Inorder Arrangement :"<<endl;
+  inorder(root);
   return 0;
 }
