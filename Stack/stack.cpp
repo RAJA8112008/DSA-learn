@@ -34,7 +34,7 @@ node* buildTree(){
    node* temp=q.front();
     q.pop();
     cout<<temp->data<<" ";
-    q.pop();
+
     if(temp->left){
       q.push(temp->left);
    }
