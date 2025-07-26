@@ -13,6 +13,8 @@ class node{
       this->right=NULL;
    }
 };
+
+
 node* buildTree(){
        
    int d;
