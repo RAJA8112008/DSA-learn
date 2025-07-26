@@ -66,7 +66,6 @@ void postorder(node*root){
       return;
    }
    //NLR
-   
    postorder(root->left);
    postorder(root->right);
    cout<<root->data<<" ";
