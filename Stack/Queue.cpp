@@ -10,6 +10,7 @@ int main(){
         }
     }
     //Printing sorted array
+    cout<<"Sorted Array: "<<endl;
     for(int i=0;i<5;i++){
         cout<<arr[i]<<" ";
     }cout<<endl;
