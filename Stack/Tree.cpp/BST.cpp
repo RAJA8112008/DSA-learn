@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 class Node{
+  public:
   int data;
   Node*left;
   Node* right;
@@ -10,6 +11,7 @@ class Node{
     this->left=NULL;
     this->right=NULL;
   }
+};
   Node* InsertinBST(Node* root,int data){
        if(root==NULL){
         root=new Node(data);
@@ -29,7 +31,7 @@ class Node{
     cout<<root->data<<" ";
     InOrder(root->right);
   }
-  Node*buildTree(){
+  Node* buildTree(){
     Node* root=NULL;
     int data;
     cout<<"Enter the values"<<endl;
@@ -40,8 +42,10 @@ class Node{
     }
     return root;
   }
-};
+
 int main(){
    Node* root=buildTree();
-  
+  cout<<"Inorder data"<<" ";
+  InOrder(root);
+  cout<<endl;
 }
