@@ -42,7 +42,15 @@ class Node{
         InOrderTravrse(root->right);
     }
     bool Search(Node* root,int target){
-        
+         if(root==NULL)return false;
+         if(root->data>target){
+            return Search(root->left,target);
+         }else if(root->data<target){
+            return Search(root->right,target);
+         }else{
+            return true;
+         }
+
     }
 int main(){    
   Node* root=NULL;
@@ -51,4 +59,12 @@ int main(){
   cout<<"InO rder";
   InOrderTravrse(root);
   cout<<endl;
+  int target;
+  cout<<"Enter the target"<<endl;
+   cin>>target;
+  if(Search(root,target)){
+    cout<<target<<" Yes"<<endl;
+  }else{
+     cout<<target<<"NO"<<endl;
+  }
 }
