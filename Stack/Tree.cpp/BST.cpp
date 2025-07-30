@@ -42,7 +42,13 @@ class Node{
     }
     return root;
   }
-
+  Node* findmin(Node*root){
+    if(root==NULL)return;
+    while(root->left!=NULL){
+      root=root->left;
+    }
+    return root;
+  }
   Node* deletinBST(Node*root,int target){
     if(root==NULL)return;
     if(root->data==target){
@@ -60,8 +66,11 @@ class Node{
          delete root;
          return temp;
        }else{
-          
+           Node*Succesor=findmin(root->right);
+           root->data=Succesor->data;
+           root->right=deletinBST(root->right,Succesor->data);
        }
+       return root;
     }
     else if(root->data>target){
       root->left = deletinBST(root->left,target);
