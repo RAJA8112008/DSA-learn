@@ -43,29 +43,29 @@ class Node{
     return root;
   }
   Node* findmin(Node*root){
-    if(root==NULL)return;
+    if(root==NULL)return NULL;
     while(root->left!=NULL){
       root=root->left;
     }
     return root;
   }
   Node* deletinBST(Node*root,int target){
-    if(root==NULL)return;
+    if(root==NULL)return NULL;
     if(root->data==target){
-       if(root==NULL)return NULL;
-       //case 1:
        if(root->left==NULL && root->right==NULL){
          delete root;
          return NULL;
        }else if(root->left==NULL && root->right!=NULL){
-         Node* temp=root->left;
-         delete root;
-         return temp;
-       }else if(root->right==NULL && root->left!=NULL){
          Node* temp=root->right;
          delete root;
          return temp;
-       }else{
+       }else if(root->right==NULL && root->left!=NULL){
+         Node* temp=root->left;
+         delete root;
+         return temp;
+       }
+       else
+       {
            Node*Succesor=findmin(root->right);
            root->data=Succesor->data;
            root->right=deletinBST(root->right,Succesor->data);
@@ -81,6 +81,13 @@ class Node{
 int main(){
    Node* root=buildTree();
   cout<<"Inorder data"<<" ";
+  InOrder(root);
+  cout<<endl;
+  int target;
+  cout<<"Enter the target "<<endl;
+  cin>>target;
+  root=deletinBST(root,target);
+  cout<<"Inorder after deleetion";
   InOrder(root);
   cout<<endl;
 }
