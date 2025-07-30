@@ -33,9 +33,18 @@ Node* InsertBST(Node* root,int data){
     }
    return root;
  }
+  void InOrderTraversal(Node*root){
+      if(root==NULL)return;
+      //LNR
+      InOrderTraversal(root->left);
+      cout<<root->data<<" "<<endl;
+      InOrderTraversal(root->right);
+  }
 int main(){  
    Node* root=NULL;
   cout<<"Enter the values in root/nodes:"<<endl;
-  Insert(root);
- 
+  root=Insert(root);
+cout<<"INorder traversal";
+InOrderTraversal(root);
+ cout<<endl;
 }
