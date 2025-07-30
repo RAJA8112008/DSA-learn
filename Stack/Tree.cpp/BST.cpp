@@ -41,6 +41,9 @@ class Node{
         cout<<root->data<<" "<<endl;
         InOrderTravrse(root->right);
     }
+    bool Search(Node* root,int target){
+        
+    }
 int main(){    
   Node* root=NULL;
   cout<<"Enter the data:"<<endl;
