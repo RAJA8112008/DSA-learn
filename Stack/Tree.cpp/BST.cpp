@@ -1,70 +1,40 @@
 #include<iostream>
 using namespace std;
 class Node{
-    public:
-    int data;
-    Node* left;
-    Node* right;
-//constructor
-    Node(int data){
-      this->data=data;
-      this->left=NULL;
-      this->right=NULL;
-    }
-};
-    Node* InsertData(Node* root,int data){
-      if(root==NULL){
+  int data;
+  Node*left;
+  Node* right;
+  //Constructor
+  Node(int data){
+    this->data=data;
+    this->left=NULL;
+    this->right=NULL;
+  }
+  Node* InsertinBST(Node* root,int data){
+       if(root==NULL){
         root=new Node(data);
         return root;
-      }
-      if(root->data>data){
-        root->left=InsertData(root->left,data);
-      }else{
-        root->right=InsertData(root->right,data);
-      }
-     return root;
-    }
- Node* takeData(Node* root){
-    int data;
-    cin>>data;
-      while(data!=-1){
-        root=InsertData(root,data);
-        cin>>data;
-      }
-      return root;
-    }
-    void InOrderTravrse(Node* root){
-
-        //LNR
-        if(root==NULL)return;
-        InOrderTravrse(root->left);
-        cout<<root->data<<" "<<endl;
-        InOrderTravrse(root->right);
-    }
-    bool Search(Node* root,int target){
-         if(root==NULL)return false;
-         if(root->data>target){
-            return Search(root->left,target);
-         }else if(root->data<target){
-            return Search(root->right,target);
-         }else{
-            return true;
-         }
-
-    }
-int main(){    
-  Node* root=NULL;
-  cout<<"Enter the data:"<<endl;
-  root= takeData(root);
-  cout<<"InO rder";
-  InOrderTravrse(root);
-  cout<<endl;
-  int target;
-  cout<<"Enter the target"<<endl;
-   cin>>target;
-  if(Search(root,target)){
-    cout<<target<<" Yes"<<endl;
-  }else{
-     cout<<target<<"NO"<<endl;
+       }
+       if(root->data>data){
+        root->left=InsertinBST(root->left,data);
+       }else{
+        root->right=InsertinBST(root->right,data);
+       }
+       return root;
   }
+  Node*buildTree(){
+    Node* root=NULL;
+    int data;
+    cout<<"Enter the values"<<endl;
+    cin>>data;
+    while(data!=-1){
+      root=InsertinBST(root,data);
+      cin>>data;
+    }
+    return root;
+  }
+};
+int main(){
+   Node* root=buildTree();
+  
 }
