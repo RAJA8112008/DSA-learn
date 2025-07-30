@@ -22,6 +22,13 @@ class Node{
        }
        return root;
   }
+  void InOrder(Node*root){
+    if(root==NULL)return ;
+    //LNR
+    InOrder(root->left);
+    cout<<root->data<<" ";
+    InOrder(root->right);
+  }
   Node*buildTree(){
     Node* root=NULL;
     int data;
