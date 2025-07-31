@@ -1,63 +1,49 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
 class MaxHeap {
 private:
-    vector<int> heap;
-
-    // Heapify down from index i
-    void heapify(int i) {
-        int n = heap.size();
-        int largest = i;
-        int left = 2 * i + 1;
-        int right = 2 * i + 2;
-
-        if (left < n && heap[left] > heap[largest])
-            largest = left;
-        if (right < n && heap[right] > heap[largest])
-            largest = right;
-
-        if (largest != i) {
-            swap(heap[i], heap[largest]);
-            heapify(largest);
-        }
-    }
+    int heap[100]; // fixed-size heap array
+    int size;
 
 public:
-    // Constructor: build heap from array
-    MaxHeap(vector<int>& arr) {
-        heap = arr;
-        buildHeap();
+    MaxHeap() {
+        size = 0;
     }
 
-    // Build heap (heapify all non-leaf nodes)
-    void buildHeap() {
-        int n = heap.size();
-        for (int i = n / 2 - 1; i >= 0; i--) {
-            heapify(i);
+    void insert(int value) {
+        heap[size] = value;
+        int index = size;
+        size++;
+
+        // Heapify up (no separate heapify function)
+        while (index > 0) {
+            int parent = (index - 1) / 2;
+            if (heap[parent] < heap[index]) {
+                swap(heap[parent], heap[index]);
+                index = parent;
+            } else {
+                break;
+            }
         }
     }
 
-    // Print heap
     void printHeap() {
-        for (int val : heap) {
-            cout << val << " ";
+        for (int i = 0; i < size; i++) {
+            cout << heap[i] << " ";
         }
         cout << endl;
     }
 };
-
 int main() {
-    vector<int> arr = {3, 5, 1, 10, 2, 7};
-
-    cout << "Original array: ";
-    for (int val : arr) cout << val << " ";
-    cout << endl;
-
-    MaxHeap h(arr);
-
-    cout << "Max-Heap created: ";
+    int arr[] = {50, 55, 53, 52, 54};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    MaxHeap h;
+    cout << "Inserting elements one by one...\n";
+    for (int i = 0; i < n; i++) {
+        h.insert(arr[i]);
+    }
+    cout << "Max-Heap after insertions: ";
     h.printHeap();
 
     return 0;
