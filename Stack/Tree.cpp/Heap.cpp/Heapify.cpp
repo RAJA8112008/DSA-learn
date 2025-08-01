@@ -7,7 +7,7 @@ class Heap{
     //constructor
     Heap(){
       //start from index 1
-      arr[0]=-1;
+      arr[0]= -1;
       size=0;
     }
     //inserting data in heap
@@ -16,7 +16,7 @@ class Heap{
        int index=size;
        arr[index]=data;
        //giving correct position to the data
-       while(size>1){
+       while(index>1){
         int parent=index/2;
         if(arr[parent]<arr[index]){
             swap(arr[parent],arr[index]);
@@ -64,7 +64,7 @@ int main(){
  h.insert(15);
  h.insert(59);
  h.insert(58);
- h.insert(59);
+ h.insert(122);
  cout<<"Heap data  is"<<endl;
  h.print();
  h.deletion();
