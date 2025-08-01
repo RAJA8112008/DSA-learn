@@ -23,6 +23,30 @@ class Heap{
       }
       return;
     }
+    //Deletion of data in heap
+    void deletion(){
+        if(size==0){
+        cout<<"Nothing to  Delete"<<endl;
+        return;
+        }
+        arr[1]=arr[size];
+        size--;
+        //take root node to  its correct position
+        int i=1;
+        while(i<size){
+            int leftchild=2*i;
+            int rightchild=2*i+1;
+            if(leftchild<size && arr[leftchild]>arr[i]){
+                swap(arr[leftchild],arr[i]);
+                i=leftchild;
+            }
+            if(rightchild<size && arr[rightchild]>arr[i]){
+                swap(arr[rightchild],arr[i]);
+                i=rightchild;
+            }
+        }
+        return;
+    }
     //printing process
     void print(){
         for(int i=1;i<=size;i++){
@@ -39,5 +63,7 @@ int main(){
     h.insert(45);
     h.insert(55);
     cout<<"Heap data  is :"<<endl;
+      h.print();
+      cout<<"Deletion of data"<<endl;
       h.print();
 }
