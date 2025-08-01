@@ -33,19 +33,21 @@ class Heap{
         size--;
         //take root node to  its correct position
         int i=1;
-        while(i<size){
+        while(i<=size){
             int leftchild=2*i;
             int rightchild=2*i+1;
-            if(leftchild<size && arr[leftchild]>arr[i]){
-                swap(arr[leftchild],arr[i]);
-                i=leftchild;
+            int largest=i;
+            if(leftchild<size && arr[leftchild]>arr[largest]){
+                swap(arr[leftchild],arr[largest]);
+                largest=leftchild;
             }
-            if(rightchild<size && arr[rightchild]>arr[i]){
-                swap(arr[rightchild],arr[i]);
-                i=rightchild;
+            if(rightchild<size && arr[rightchild]>arr[largest]){
+                swap(arr[rightchild],arr[largest]);
+                largest=rightchild;
             }
+            break;
         }
-        return;
+        
     }
     //printing process
     void print(){
@@ -64,6 +66,8 @@ int main(){
     h.insert(55);
     cout<<"Heap data  is :"<<endl;
       h.print();
-      cout<<"Deletion of data"<<endl;
-      h.print();
+      
+      cout << "After Deletion:" << endl;
+    h.deletion();  
+    h.print();
 }
