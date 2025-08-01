@@ -36,15 +36,15 @@ class Heap{
         size--;
         //get correct position to the data
         int  i=1;
-        while(i<size){
+        while(i<=size){
             int largest=i;//which data is set its correct place
             int leftChild=2*i;
             int rightChild=2*i+1;
-            if(leftChild < size && arr[leftChild]>arr[largest]){
+            if(leftChild <= size && arr[leftChild]>arr[largest]){
                 swap(arr[largest],arr[leftChild]);
                 largest=leftChild;
             }
-             if(rightChild < size && arr[rightChild]>arr[largest]){
+             if(rightChild <= size && arr[rightChild]>arr[largest]){
                 swap(arr[largest],arr[rightChild]);
                 largest=rightChild;
             }
@@ -56,6 +56,22 @@ class Heap{
         for(int i=1;i<size;i++){
             cout<<arr[i]<<" ";
         }cout<<endl;
+    }
+    // heapify
+    void heapify(int arr[],int n,int i){
+        int largest=i;
+        int right=2*i+1;
+        int left=2*i;
+        if(left<n && arr[left]>arr[largest]){
+            largest=left;
+        }
+        if(right<n && arr[right]>arr[largest]){
+            largest=right;
+        }
+        if(largest!=i){
+            swap(arr[largest],arr[i]);
+            heapify(arr,n,i);
+        }
     }
 };
 int main(){
@@ -70,4 +86,13 @@ int main(){
  h.deletion();
  cout<<" After deletion Heap data  is"<<endl;
      h.print();
+     int arr[6]={-1,55,53,62,58,73};
+     int n=5;
+     cout<<" Heapify  Heap data  is"<<endl;
+     for(int i=n/2;i>0;i--){
+       h.heapify(arr,n,i);
+     }
+     for(int i=1;i<=n;i++){
+       cout<<arr[i]<<"  ";
+     }cout<<endl;
 }
