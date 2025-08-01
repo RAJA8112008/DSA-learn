@@ -27,6 +27,31 @@ class Heap{
         }
        }
     }
+    void deletion(){
+        if(size==0){
+            cout<<" Heap is Empty"<<endl;
+            return;
+        } 
+        arr[1]=arr[size];
+        size--;
+        //get correct position to the data
+        int  i=1;
+        while(i<size){
+            int largest=i;//which data is set its correct place
+            int leftChild=2*i;
+            int rightChild=2*i+1;
+            if(leftChild < size && arr[leftChild]>arr[largest]){
+                swap(arr[largest],arr[leftChild]);
+                largest=leftChild;
+            }
+             if(rightChild < size && arr[rightChild]>arr[largest]){
+                swap(arr[largest],arr[rightChild]);
+                largest=rightChild;
+            }
+            return;
+        }
+    }
+    //for printig
     void print(){
         for(int i=1;i<size;i++){
             cout<<arr[i]<<" ";
@@ -42,4 +67,7 @@ int main(){
  h.insert(59);
  cout<<"Heap data  is"<<endl;
  h.print();
+ h.deletion();
+ cout<<" After deletion Heap data  is"<<endl;
+     h.print();
 }
