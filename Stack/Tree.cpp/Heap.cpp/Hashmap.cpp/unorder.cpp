@@ -13,4 +13,8 @@ int main(){
    cout<<m["Saniya"]<<endl;
    //search
    cout<<m.count("Saniya")<<endl;
+   for(auto i:m){
+    //becouse i is the pair of string and integer value so  
+    cout<<"->"<<i.first<<"->"<<i.second<<endl;
+   }
 }
