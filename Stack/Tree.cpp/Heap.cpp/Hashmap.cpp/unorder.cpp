@@ -11,4 +11,6 @@ int main(){
     //asses
    cout<< m.at("Rahul")<<endl;
    cout<<m["Saniya"]<<endl;
+   //search
+   cout<<m.count("Saniya")<<endl;
 }
