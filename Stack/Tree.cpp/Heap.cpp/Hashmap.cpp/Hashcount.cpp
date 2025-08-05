@@ -44,6 +44,7 @@ string infixToPostfix(string s) {
                 st.pop();
             }
             st.push(c);
+            
         }
     }
 
