@@ -44,10 +44,9 @@ string infixToPostfix(string s) {
                 st.pop();
             }
             st.push(c);
-            
+
         }
     }
-
     // Pop any remaining operators
     while (!st.empty()) {
         result += st.top();
