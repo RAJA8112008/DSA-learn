@@ -31,7 +31,8 @@ public:
     }
 };
 int main(){
-  int 
+  string str;
+  cin>>str;
 }
 
 
