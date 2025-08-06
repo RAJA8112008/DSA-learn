@@ -32,10 +32,11 @@ public:
 };
 int main(){
     Solution sol;
-  string str;
+   string str;
   cout<<"Enter the roman string"<<endl;
-  cin>>str;
+   cin>>str;
   int result=sol.romanTOInt(str);
+  cout<<"Ans is:"<<result<<endl;
 }
 
 
