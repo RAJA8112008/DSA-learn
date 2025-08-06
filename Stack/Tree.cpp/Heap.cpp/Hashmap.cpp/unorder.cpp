@@ -35,7 +35,7 @@ int main(){
    string str;
   cout<<"Enter the roman string"<<endl;
    cin>>str;
-  int result=sol.romanTOInt(str);
+  int result=sol.romanToInt(str);
   cout<<"Ans is:"<<result<<endl;
 }
 
