@@ -1,67 +1,48 @@
-#include <iostream>
-#include <stack>
-#include <string>
+//C++ program to check an array is sorted and rotated
+#include <bits/stdc++.h>
 using namespace std;
 
-// Check if character is operator
-bool isOperator(char c) {
-    return c == '+' || c == '-' || c == '*' || c == '/' || c == '^';
-}
-// Operator precedence (ignoring associativity)
-int precedence(char op) {
-    if (op == '^') return 3;
-    if (op == '*' || op == '/') return 2;
-    if (op == '+' || op == '-') return 1;
-    return -1;
-}
+// Function to check if arr[] is rotated and sorted
+bool check(vector<int>& arr, int n)
+{
+    // Initialize count of the number of times the sequence
+    // is out of order
+    int count = 0;
 
-// Convert infix to postfix
-string infixToPostfix(string s) {
-    stack<char> st;
-    string result = "";
-
-    for (char c : s) {
-        if (isalnum(c)) {
-            // If operand, add to result
-            result += c;
-        } 
-        else if (c == '(') {
-            st.push(c);
-        } 
-        else if (c == ')') {
-            // Pop until matching '('
-            while (!st.empty() && st.top() != '(') {
-                result += st.top();
-                st.pop();
-            }
-            if (!st.empty()) st.pop(); // pop '('
-        } 
-        else if (isOperator(c)) {
-            // Pop while stack top has higher or equal precedence
-            while (!st.empty() && precedence(st.top()) >= precedence(c)) {
-                result += st.top();
-                st.pop();
-            }
-            st.push(c);
-
+    // Iterate through the vector
+    for (int i = 0; i < n; i++) {
+        // Check if the current element is greater than the
+        // next element
+        if (arr[i] > arr[(i + 1) % n]) {
+            // Increment count if the sequence is out of
+            // order
+            count++;
         }
     }
-    // Pop any remaining operators
-    while (!st.empty()) {
-        result += st.top();
-        st.pop();
-    }
 
-    return result;
+    // Return true if there is at most one point where the
+    // sequence is out of order
+    return count <= 1;
 }
 
-int main() {
-    string infix;
-    cout << "Enter infix expression: ";
-    cin >> infix;
+// Driver Code
+int main()
+{
+    // Sample Input
+  	// Example of a rotated and sorted array
+    vector<int> arr = { 3, 4, 5, 1, 2,1 }; 
 
-    string postfix = infixToPostfix(infix);
-    cout << "Postfix expression: " << postfix << endl;
+    // Get the size of the vector
+    int n = arr.size();
+
+    // Call the check function and determine if the array is
+    // rotated and sorted
+    if (check(arr, n))
+        // Print YES if the array is rotated and sorted
+        cout << "YES" << endl;
+    else
+        // Print NO if the array is not rotated and sorted
+        cout << "NO" << endl;
 
     return 0;
 }
