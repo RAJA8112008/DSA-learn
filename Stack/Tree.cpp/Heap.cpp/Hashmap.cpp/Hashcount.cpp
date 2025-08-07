@@ -7,7 +7,6 @@ using namespace std;
 bool isOperator(char c) {
     return c == '+' || c == '-' || c == '*' || c == '/' || c == '^';
 }
-
 // Operator precedence (ignoring associativity)
 int precedence(char op) {
     if (op == '^') return 3;
