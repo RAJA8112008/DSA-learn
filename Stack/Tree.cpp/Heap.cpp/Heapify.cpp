@@ -7,8 +7,6 @@ class temp {
 public:
     char ch;
     int count;
-
-    // ✅ Fixed constructor (renamed parameter to avoid conflict)
     temp(char c, int cnt) {
         ch = c;
         count = cnt;
@@ -18,7 +16,7 @@ public:
 class compare {
 public:
     bool operator()(temp a, temp b) {
-        return a.count < b.count;  // Max heap: highest count comes first
+        return a.count < b.count; 
     }
 };
 
