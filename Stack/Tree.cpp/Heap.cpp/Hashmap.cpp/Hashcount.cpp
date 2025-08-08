@@ -11,6 +11,7 @@ using namespace std;
     }
     return count<=1;
  }
+ 
 int main(){
   vector<int>val={3,4,5,1,2};
    if(check(val)){
