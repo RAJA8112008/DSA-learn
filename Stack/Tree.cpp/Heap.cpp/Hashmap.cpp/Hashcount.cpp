@@ -11,6 +11,9 @@ public:
         }
     }
 
+
+
+    
     void rotateLeft(vector<int>& arr, int d) {
         int n = arr.size();
         d = d % n; // In case d > n
