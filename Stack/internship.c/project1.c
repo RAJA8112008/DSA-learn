@@ -15,6 +15,7 @@ int main(){
         for(int j=0;j<5;j++){
             sum+=a[i][j];
             printf("%d ",sum);
+             if (i < 3) printf(", ");
         }
     }
 
