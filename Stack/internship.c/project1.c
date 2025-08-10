@@ -37,6 +37,19 @@ int main() {
         }
     }
     printf("]\n");
+// Day with lowest attendance
+    int minDay = 0;
+    int minSum = 4;  // max attendance per day = number of employees
+    for (int j = 0; j < 5; j++) {
+        int sum = 0;
+        for (int i = 0; i < 4; i++)
+            sum += a[i][j];
+        if (sum < minSum) {
+            minSum = sum;
+            minDay = j;
+        }
+    }
+    printf("Day with lowest attendance: Day %d (%s)\n", minDay, dayName[minDay]);
 
     return 0;
 }
