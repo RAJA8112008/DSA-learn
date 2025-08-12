@@ -24,7 +24,6 @@ int main() {
             }
         }
     }
-
     // Printing with ranks
     printf("Rank\tID\tName\tScore\n");
     for(int i = 0; i < n; i++) {
