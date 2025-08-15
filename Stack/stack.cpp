@@ -72,6 +72,7 @@ void postorder(node*root){
 }
 int main(){
   node* root=NULL;
+  
   root=buildTree();
   cout<<"Printing the tree"<<endl;
   levelOrderTravelsel(root);
