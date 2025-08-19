@@ -32,8 +32,11 @@ Node* InsertinBST(Node* root,int data){
      if(root==NULL){
       return NULL;
      }
+     if(root->data==target){
+
+     }
  }
 
 int main(){
-
+ int target;
 }
