@@ -49,6 +49,10 @@ Node* InsertinBST(Node* root,int data){
         //both nodes are present
         
        }
+     }else if(root->data<target){
+       root->right=deletioninBST(root->right,target);
+     }else{
+      root->left=deletioninBST(root->left,target);
      }
  }
 
