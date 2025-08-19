@@ -22,8 +22,14 @@ Node* InsertinBST(Node* root,int data){
       return root;
     }else if(root->data>data){
       root->left=InsertinBST(root,data);
+    }else{
+      root->right=InsertinBST(root,data);
     }
+    return root;
 }
+//delection in BST
+
+
 int main(){
 
-};
+}
