@@ -2,6 +2,7 @@
 using namespace std;
 //creation of BST using class
 class Node{
+  public:
   int data;
   Node* right;
   Node* left;
@@ -20,7 +21,7 @@ Node* InsertinBST(Node* root,int data){
        root = new Node(data);
       return root;
     }else if(root->data>data){
-      
+      root->left=InsertinBST(root,data);
     }
 }
 int main(){
