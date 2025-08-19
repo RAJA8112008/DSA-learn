@@ -33,7 +33,13 @@ Node* InsertinBST(Node* root,int data){
       return NULL;
      }
      if(root->data==target){
-
+       //case 1: left  !right
+       if(root->left==NULL && root->right==NULL){
+          delete root;
+          return root;
+       }else if(root->left!=NULL && root->right==NULL){
+        
+       }
      }
  }
 
