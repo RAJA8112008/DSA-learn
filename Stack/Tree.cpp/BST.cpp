@@ -14,7 +14,15 @@ class Node{
 };
 
 //Insertion in BST
-
+Node* InsertinBST(Node* root,int data){
+    //check root is available or not
+    if(root==NULL){
+       root = new Node(data);
+      return root;
+    }else if(root->data>data){
+      
+    }
+}
 int main(){
 
 };
