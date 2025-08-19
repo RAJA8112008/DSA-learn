@@ -32,6 +32,16 @@ Node* InsertinBST(Node* root,int data){
      if(root==NULL){
       return NULL;
      }
+     //find min
+     Node* findmin(Node* root){
+      if(root->left!=NULL)return NULL;
+        while(root->left!=NULL){
+          root=root->left;
+        }
+        return root;
+     }
+     //This is made for valid BST
+     
      if(root->data==target){
        //case 1: left  !right
        if(root->left==NULL && root->right==NULL){
