@@ -54,6 +54,7 @@ Node* InsertinBST(Node* root,int data){
      }else{
       root->left=deletioninBST(root->left,target);
      }
+     return root;
  }
 
 int main(){
