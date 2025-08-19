@@ -38,6 +38,15 @@ Node* InsertinBST(Node* root,int data){
           delete root;
           return root;
        }else if(root->left!=NULL && root->right==NULL){
+         Node* temp=root->left;
+         delete root;
+         return temp;
+       }else if(root->right!=NULL && root->left==NULL){
+        Node* temp=root->right;
+        delete root;
+        return temp;
+       }else{
+        //both nodes are present
         
        }
      }
