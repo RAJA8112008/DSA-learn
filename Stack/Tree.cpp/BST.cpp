@@ -28,7 +28,11 @@ Node* InsertinBST(Node* root,int data){
     return root;
 }
 //delection in BST
-
+ Node* deletioninBST(Node* root,int data){
+     if(root==NULL){
+      return NULL;
+     }
+ }
 
 int main(){
 
