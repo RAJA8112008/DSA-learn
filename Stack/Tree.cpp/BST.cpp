@@ -40,8 +40,14 @@ Node* InsertinBST(Node* root,int data){
         }
         return root;
      }
-     //This is made for valid BST
-     
+     void InOrder(Node* root) {
+    if (root == NULL) return;
+    // LNR
+    InOrder(root->left);
+    cout << root->data << " ";
+    InOrder(root->right);
+}
+
      if(root->data==target){
        //case 1: left  !right
        if(root->left==NULL && root->right==NULL){
@@ -57,7 +63,10 @@ Node* InsertinBST(Node* root,int data){
         return temp;
        }else{
         //both nodes are present
-        
+        Node* succesor=findmin(root->right);
+           root->data =succesor->data;
+           root->right=deletioninBST(root->right,succesor->data);
+           return root;
        }
      }else if(root->data<target){
        root->right=deletioninBST(root->right,target);
@@ -66,7 +75,33 @@ Node* InsertinBST(Node* root,int data){
      }
      return root;
  }
-
+  Node* buildTree() {
+    Node* root = NULL;
+    int data;
+    cout << "Enter values to insert in BST (-1 to stop):" << endl;
+    cin >> data;
+    while (data != -1) {
+        root = InsertinBST(root, data);
+        cin >> data;
+    }
+    return root;
+}
 int main(){
- int target;
+ Node* root = buildTree();
+
+    cout << "Inorder traversal: ";
+    InOrder(root);
+    cout << endl;
+
+    int target;
+    cout << "Enter the target to delete: ";
+    cin >> target;
+
+    root = deletioninBST(root, target);
+
+    cout << "Inorder after deletion: ";
+    InOrder(root);
+    cout << endl;
+
+    return 0;
 }
