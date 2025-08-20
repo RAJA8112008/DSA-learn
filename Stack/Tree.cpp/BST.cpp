@@ -70,10 +70,10 @@ Node* deletioninBST(Node* root, int target){
         }
         // Case 3: One child (left only)
         else if(root->right == NULL){
+            
             Node* temp = root->left;
             delete root;
-            return temp;
-            
+            return temp;    
         }
         // Case 4: Two children
         else{
