@@ -73,6 +73,7 @@ Node* deletioninBST(Node* root, int target){
             Node* temp = root->left;
             delete root;
             return temp;
+            
         }
         // Case 4: Two children
         else{
