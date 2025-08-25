@@ -56,7 +56,6 @@ Node* deletioninBST(Node* root, int target){
         root->right = deletioninBST(root->right, target);
     } 
     else {
-        // Node found
         // Case 1: No child
         if(root->left == NULL && root->right == NULL){
             delete root;
