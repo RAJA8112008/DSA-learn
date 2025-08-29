@@ -14,6 +14,9 @@ using namespace std;
         temp->data=data;
         temp=temp->next;
     }
+    void print(Node* &head){
+        Node* temp=head;
+    }
 int main(){
    Node* node1=new Node(10);
 // cout<<node1->data<<endl;
