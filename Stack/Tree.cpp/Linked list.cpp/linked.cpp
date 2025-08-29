@@ -23,7 +23,11 @@ using namespace std;
     }
 int main(){
    Node* node1=new Node(10);
-// cout<<node1->data<<endl;
-// cout<<node1->next<<endl;
 Node* head=node1;
+  insertAtNode(head,12);
+  print(head);
+  insertAtNode(head,15);
+  print(head);
+  insertAtNode(head,19);
+  print(head);
 }
