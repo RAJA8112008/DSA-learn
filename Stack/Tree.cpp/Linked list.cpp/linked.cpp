@@ -6,5 +6,6 @@ using namespace std;
         Node* point;
     };
 int main(){
-   
+   Node* node1=new Node();
+   cout<<node1->data<<endl;
 }
