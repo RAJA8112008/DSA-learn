@@ -12,7 +12,7 @@ using namespace std;
     void insertAtNode(Node* &head,int data){
         Node* temp=new Node(data);
         temp->data=data;
-        temp=temp->next;
+        head=temp;
     }
     void print(Node* &head){
         Node* temp=head;
