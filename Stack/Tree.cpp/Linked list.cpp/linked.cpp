@@ -1,10 +1,10 @@
 #include<iostream>
 using namespace std;
- class Linked{
+ class Node{
         public:
         int data;
-        Linked* point;
-    }
+        Node* point;
+    };
 int main(){
    
 }
