@@ -9,6 +9,13 @@ Node(int data){
     this->next=NULL;
 }
 };
+
+//insert at tail
+void insertAttail(Node* &tail,int data){
+ Node* temp=new Node(data);
+ tail->next=temp;
+ tail=temp;
+}
 void insertAthead(Node* &head,int data){
   Node* temp=new Node(data);
   temp->next=head;
@@ -23,12 +30,19 @@ void print(Node*head){
     cout<<endl;
 }
 int main(){
-Node* node1=new Node(15);
+Node* node1=new Node(5);
 Node* head=node1;
-insertAthead(head,20);
+Node* tail=node1;
+// insertAthead(head,20);
+// print(head);
+// insertAthead(head,55);
+// print(head);
+// insertAthead(head,65);
+// print(head);
+insertAttail(tail,15);
 print(head);
-insertAthead(head,55);
+insertAttail(tail,25);
 print(head);
-insertAthead(head,65);
+insertAttail(tail,35);
 print(head);
 }
