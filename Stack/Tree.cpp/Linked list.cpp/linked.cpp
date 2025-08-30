@@ -15,6 +15,20 @@ void insertAttail(Node* &tail,int data){
     tail->point=temp;
     tail=temp;
 }
+//deletion any node
+void deleteNode(int position,Node* &head){
+  Node* temp=head;
+  int cnt=1;
+  while(cnt<position){
+    temp=temp->point;
+    cnt++;
+  }
+  Node* next=head;
+  Node* prev=NULL;
+  if(position==1){
+    
+  }
+}
 //insertion at head
  void insertAthead(Node* &head,int data){
     //creation of node
