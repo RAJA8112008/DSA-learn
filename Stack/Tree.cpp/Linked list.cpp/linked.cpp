@@ -30,6 +30,29 @@ void insertAttail(Node* &tail,int data){
   }
    cout<<endl;
  }
+ //insert at position
+ void insertAtposition(Node* &head,Node* & tail,int position,int data){
+    if(position==1){
+       insertAthead(head,data);
+       return;
+    }
+    Node* temp=head;
+  int cnt=1;
+  while(cnt==position-1){
+    temp=temp->point;
+    cnt++;
+  }
+  //insert at last
+   if(temp->point==NULL){
+    insertAthead(tail,data);
+    return;
+   }
+  //create Node
+  Node* node=new Node(data);
+  node->point=temp->point;
+  temp->point=node;
+ }
+
  //print the node
  void print(Node* head){
     
