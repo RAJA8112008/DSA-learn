@@ -32,7 +32,9 @@ void deleteNode(int position,Node* &head){
       curr=curr->point;
       cnt++;
     }
-    
+    prev->point=curr->point;
+    curr->point=NULL;
+    delete (curr);
   }
 }
 //insertion at head
