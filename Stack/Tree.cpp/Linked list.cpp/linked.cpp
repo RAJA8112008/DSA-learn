@@ -22,7 +22,7 @@ void insertAttail(Node* &tail,int data){
     temp->point=head;
     head=temp;
  }
- //print tail
+ //print tail 
  void printTail(Node* tail){
   while(tail!=NULL){
     cout<<tail->data<<" ";
