@@ -38,13 +38,13 @@ void insertAttail(Node* &tail,int data){
     }
     Node* temp=head;
   int cnt=1;
-  while(cnt==position-1){
+  while(cnt<position-1){
     temp=temp->point;
     cnt++;
   }
   //insert at last
    if(temp->point==NULL){
-    insertAthead(tail,data);
+    insertAttail(tail,data);
     return;
    }
   //create Node
@@ -77,5 +77,7 @@ print(head);
 insertAttail(tail,30);
 print(head);
 insertAttail(tail,40);
+print(head);
+insertAtposition(head,tail,3,50);
 print(head);
 }
