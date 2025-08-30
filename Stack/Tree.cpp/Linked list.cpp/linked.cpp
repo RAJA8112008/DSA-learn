@@ -23,6 +23,7 @@ class Node{
     cout<<head->data<<" ";
     head=head->point;
    }
+   cout<<endl;
  }
 int main(){
  Node* node1=new Node(10);
@@ -32,5 +33,5 @@ int main(){
  insertAthead(head,30);
   print(head);
  insertAthead(head,40);
- 
+   print(head);
 }
