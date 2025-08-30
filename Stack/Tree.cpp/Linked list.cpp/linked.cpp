@@ -27,4 +27,10 @@ class Node{
 int main(){
  Node* node1=new Node(10);
  Node* head=node1;
+ insertAthead(head,20);
+ print(head);
+ insertAthead(head,30);
+  print(head);
+ insertAthead(head,40);
+ 
 }
