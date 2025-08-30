@@ -26,6 +26,10 @@ void deleteNode(int position,Node* &head){
   Node* next=head;
   Node* prev=NULL;
   if(position==1){
+    Node* temp=head;
+    head=head->point;
+    delete(temp);
+  }else{
     
   }
 }
