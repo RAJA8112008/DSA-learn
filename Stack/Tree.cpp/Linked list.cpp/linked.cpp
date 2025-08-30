@@ -102,8 +102,10 @@ insertAttail(tail,40);
 print(head);
 insertAtposition(head,tail,3,50);
 print(head);
- deleteNode(3,head);
+//  deleteNode(3,head);
+//  print(head);
+ deleteNode(5,head);
  print(head);
- deleteNode(1,head);
- print(head);
+ cout<<"Head"<<head->data<<endl;
+  cout<<"tail"<<tail->data<<endl;
 }
