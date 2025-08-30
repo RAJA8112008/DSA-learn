@@ -50,9 +50,9 @@ int main(){
 //  insertAthead(head,40);
 //    print(head);
 insertAttail(tail,20);
-printTail(tail);
+print(head);
 insertAttail(tail,30);
-printTail(tail);
+print(head);
 insertAttail(tail,40);
-printTail(tail);
+print(head);
 }
