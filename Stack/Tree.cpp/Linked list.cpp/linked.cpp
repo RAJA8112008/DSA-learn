@@ -28,8 +28,11 @@ void deleteNode(int position,Node* &head){
     Node* curr=head;
     int cnt=1;
     while(cnt<position){
-      
+      prev=curr;
+      curr=curr->point;
+      cnt++;
     }
+    
   }
 }
 //insertion at head
