@@ -21,7 +21,7 @@ void deleteNode(int position,Node* &head){
   if(position==1){
    Node* temp=head;
    head=head->point;
-   head->point=NULL;
+   temp->point=NULL;
    delete(temp);
   }else{
     Node* prev=NULL;
@@ -102,4 +102,6 @@ insertAttail(tail,40);
 print(head);
 insertAtposition(head,tail,3,50);
 print(head);
+ deleteNode(3,head);
+ print(head);
 }
