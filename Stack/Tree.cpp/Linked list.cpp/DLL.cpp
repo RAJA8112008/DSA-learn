@@ -21,9 +21,11 @@ void insertAtHead(Node*&head,int data){
    head=temp;
 }
 //insert at end
-void insertAtTail(Node* &tail,int data){
- Node* temp=new Node(15);
-  
+void insertAtTail(Node* &tail,Node* &head,int data){
+ Node* temp=new Node(data);
+  tail->next=temp;
+  temp->prev=tail;
+  tail=temp;
 }
 void print(Node*&head){
     Node* temp=head;
@@ -37,8 +39,12 @@ int main(){
  Node* node1=new Node(10);
  Node* head=node1;
  Node* tail=node1;
- insertAtHead(head,15);
-  insertAtHead(head,20);
-  insertAtHead(head,20);
+//  insertAtHead(head,15);
+//   insertAtHead(head,20);
+//   insertAtHead(head,20);
+//  print(head);
+  insertAtTail(tail,head,15);
+  insertAtTail(tail,head,20);
+  insertAtTail(tail,head,25);
  print(head);
 }
