@@ -50,7 +50,7 @@ void insertAtposition(Node*& head, Node*& tail, int position, int data) {
         cnt++;
     }
 
-    // insert at end if we're beyond the last node
+    // insert at end 
     if (temp->next == NULL) {
         insertAtTail(tail, data);
         return;
@@ -63,7 +63,10 @@ void insertAtposition(Node*& head, Node*& tail, int position, int data) {
     temp->next = newnode;
     newnode->prev = temp;
 }
-
+ //deletion 
+ void deleteNode(){
+    
+ }
 void print(Node*& head) {
     Node* temp = head;
     while (temp != NULL) {
