@@ -104,4 +104,6 @@ insertAtposition(head,tail,3,50);
 print(head);
  deleteNode(3,head);
  print(head);
+ deleteNode(1,head);
+ print(head);
 }
