@@ -12,12 +12,18 @@ class Node{
         this->next=NULL;
     }
 };
+//insert at head
 void insertAtHead(Node*&head,int data){
    Node* temp=new Node(data);
    temp->next=head;
    
    head->prev = temp;
    head=temp;
+}
+//insert at end
+void insertAtTail(Node* &tail,int data){
+ Node* temp=new Node(15);
+  
 }
 void print(Node*&head){
     Node* temp=head;
@@ -30,6 +36,7 @@ void print(Node*&head){
 int main(){
  Node* node1=new Node(10);
  Node* head=node1;
+ Node* tail=node1;
  insertAtHead(head,15);
   insertAtHead(head,20);
   insertAtHead(head,20);
