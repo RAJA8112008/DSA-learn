@@ -24,7 +24,7 @@ void insertAthead(Node* &head,int data){
 //print the list
 void print(Node* &head){
     Node* temp=head;
-    while(head!=NULL){
+    while(temp!=NULL){
         cout<<temp->data<<" ";
         temp=temp->next;
     }
@@ -37,6 +37,30 @@ void insertAtTail(Node* &tail,int data){
    tail->next=temp;
    tail=temp;
 }
+//insert at position 
+void insertAtposition(Node* &head,Node* &tail,int position,int data){
+    if(position==1){
+        insertAthead(head,data);
+        return;
+    }
+   //traverse
+   Node* temp=head;
+   int cnt=1;
+   while(cnt<position-1){
+    temp=temp->next;
+    cnt++;
+   }
+   //insert at last
+   if(temp->next==NULL){
+    insertAtTail(tail,data);
+    return;
+   }
+   Node* newtemp=new Node(data);
+   newtemp->next=temp->next;
+   temp->next->prev=newtemp;
+   temp->next=newtemp;
+   newtemp->prev=temp;
+}
 int main(){
   Node* node1=new Node(5);
    Node* head=node1;
@@ -47,5 +71,7 @@ int main(){
     //   print(head);
       insertAtTail(tail,45);
       insertAtTail(tail,89);
+      print(head);
+      insertAtposition(head,tail,3,99);
       print(head);
 }
