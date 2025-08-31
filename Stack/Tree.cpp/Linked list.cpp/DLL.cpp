@@ -13,7 +13,30 @@ this->next=NULL;
 }
 
 };
+//delection in node
+void deleteNode(Node* &head,int position){
+  if(position==1){
+       Node* temp=head;
+       head=temp->next;
+       temp->next=NULL;
+       delete temp;
+       return;
+  }
+  Node* curr=head;
+  Node* prev=NULL;
+  int cnt=1;
+  while(cnt<position){
+    prev=curr;
+    curr=curr->next;
+    cnt++;
+  }
+  //deletion process
+  prev->next=curr->next;
+  curr->next=NULL;
+  curr->prev=NULL;
+  delete curr;
 
+}
 //insert at head
 void insertAthead(Node* &head,int data){
    Node* temp=new Node(data);
@@ -73,5 +96,7 @@ int main(){
       insertAtTail(tail,89);
       print(head);
       insertAtposition(head,tail,3,99);
+      print(head);
+      deleteNode(head,3);
       print(head);
 }
