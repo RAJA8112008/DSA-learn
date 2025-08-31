@@ -30,10 +30,15 @@ void print(Node* &head){
     }
     cout<<endl;
 }
-
+//inser at tail;
+void insertAtnode(Node* &tail,int data){
+    Node* temp=new Node(data);
+    
+}
 int main(){
   Node* node1=new Node(5);
    Node* head=node1;
+   Node* tail=node1;
      insertAthead(head,12);
      insertAthead(head,14);
       insertAthead(head,16);
