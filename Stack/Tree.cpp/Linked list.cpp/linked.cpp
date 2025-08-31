@@ -11,7 +11,19 @@ Node(int data){
 };
 //deletion 
 void deleteNode(Node* &head,int position){
- 
+ if(position==1){
+    Node* temp=head;
+     head=head->next;
+    head->next=NULL;
+    delete temp;
+ }
+ //traverse at LL
+ Node* curr=head;
+ Node* prev=NULL;
+ int cnt=1;
+ while(cnt<position-1){
+    
+ }
 }
 //insert at tail
 void insertAttail(Node* &tail,int data){
