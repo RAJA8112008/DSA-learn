@@ -9,7 +9,10 @@ Node(int data){
     this->next=NULL;
 }
 };
-
+//deletion 
+void deleteNode(Node* &head,int position){
+ 
+}
 //insert at tail
 void insertAttail(Node* &tail,int data){
  Node* temp=new Node(data);
