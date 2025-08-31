@@ -22,8 +22,13 @@ void deleteNode(Node* &head,int position){
  Node* prev=NULL;
  int cnt=1;
  while(cnt<position-1){
-    
+    head=head->next;
+    cnt++;
  }
+ //deletion process
+ prev->next=curr->next;
+ curr->next=NULL;
+ delete curr;
 }
 //insert at tail
 void insertAttail(Node* &tail,int data){
