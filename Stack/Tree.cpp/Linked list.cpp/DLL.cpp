@@ -31,16 +31,21 @@ void print(Node* &head){
     cout<<endl;
 }
 //inser at tail;
-void insertAtnode(Node* &tail,int data){
+void insertAtTail(Node* &tail,int data){
     Node* temp=new Node(data);
-    
+   temp->prev=tail;
+   tail->next=temp;
+   tail=temp;
 }
 int main(){
   Node* node1=new Node(5);
    Node* head=node1;
    Node* tail=node1;
-     insertAthead(head,12);
-     insertAthead(head,14);
-      insertAthead(head,16);
+    //  insertAthead(head,12);
+    //  insertAthead(head,14);
+    //   insertAthead(head,16);
+    //   print(head);
+      insertAtTail(tail,45);
+      insertAtTail(tail,89);
       print(head);
 }
