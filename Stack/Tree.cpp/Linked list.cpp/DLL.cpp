@@ -73,6 +73,8 @@ void insertAtposition(Node* &head,Node* &tail,int position,int data){
     temp=temp->next;
     cnt++;
    }
+
+   
    //insert at last
    if(temp->next==NULL){
     insertAtTail(tail,data);
@@ -94,7 +96,7 @@ int main(){
     //   print(head);
       insertAtTail(tail,45);
       insertAtTail(tail,89);
-      
+
       print(head);
       insertAtposition(head,tail,3,99);
       print(head);
