@@ -94,6 +94,7 @@ int main(){
     //   print(head);
       insertAtTail(tail,45);
       insertAtTail(tail,89);
+      
       print(head);
       insertAtposition(head,tail,3,99);
       print(head);
