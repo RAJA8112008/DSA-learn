@@ -3,8 +3,6 @@ using namespace std;
 class Node{
     public:
 int data;
-
-
 Node* next;
 Node*prev;
 //constructor
@@ -17,7 +15,6 @@ this->next=NULL;
 //delection in node
 void deleteNode(Node* &head,int position){
   if(position==1){
-
 
        Node* temp=head;
        head=temp->next;
@@ -34,6 +31,8 @@ void deleteNode(Node* &head,int position){
     curr=curr->next;
     cnt++;
   }
+
+  
   //deletion process
   prev->next=curr->next;
   curr->next=NULL;
