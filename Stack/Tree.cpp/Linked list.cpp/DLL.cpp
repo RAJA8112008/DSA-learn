@@ -11,11 +11,12 @@ this->data=data;
 this->prev=NULL;
 this->next=NULL;
 }
-
 };
 //delection in node
 void deleteNode(Node* &head,int position){
   if(position==1){
+
+    
        Node* temp=head;
        head=temp->next;
        temp->next=NULL;
