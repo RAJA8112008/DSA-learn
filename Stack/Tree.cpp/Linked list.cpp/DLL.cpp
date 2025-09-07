@@ -31,8 +31,6 @@ void deleteNode(Node* &head,int position){
     curr=curr->next;
     cnt++;
   }
-
-  
   //deletion process
   prev->next=curr->next;
   curr->next=NULL;
