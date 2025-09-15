@@ -86,6 +86,7 @@ Node* tail=node1;
 insertAttail(tail,15);
 print(head);
 insertAttail(tail,25);
+
 print(head);
 insertAttail(tail,35);
 print(head);
