@@ -1,98 +1,50 @@
-#include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
-class Node{
-public:
-int data;
-Node* next;
-Node(int data){
-    this->data=data;
-    this->next=NULL;
-}
-};
-//deletion 
-void deleteNode(Node* &head,int position){
- if(position==1){
-    Node* temp=head;
-     head=head->next;
-    temp->next=NULL;
-    delete temp;
-    return;
- }
- 
- //traverse at LL
- Node* curr=head;
- Node* prev=NULL;
- int cnt=1;
- while(cnt<position){
-    prev=curr;
-    curr=curr->next;
-    cnt++;
- }
- if (curr == NULL) return;
- //deletion process
- prev->next=curr->next;
- curr->next=NULL;
- delete curr;
- 
-}
-//insert at tail
-void insertAttail(Node* &tail,int data){
- Node* temp=new Node(data);
- tail->next=temp;
- tail=temp;
-}
-void insertAthead(Node* &head,int data){
-  Node* temp=new Node(data);
-  temp->next=head;
-  head=temp;
-}
-void print(Node*head){
-    Node* temp=head;
-    while(temp!=NULL){
-        cout<<temp->data<<" ";
-        temp=temp->next;
-    }
-    cout<<endl;
-}
-void insertAtposition(Node* &head,Node* &tail,int position,int data){
-    if(position==1){
-        insertAthead(head,data);
-        return;
-    }
-    Node* temp=head;
-    int cnt=1;
-    while(cnt<position-1){
-        temp=temp->next;
-        cnt++;
-    }
-    Node* newNode=new Node(data);
-     newNode->next=temp->next;
-     temp->next=newNode;
-     //at tail
-     if(temp==NULL){
-        insertAttail(tail,data);
-     }
-}
-int main(){
-Node* node1=new Node(5);
-Node* head=node1;
-Node* tail=node1;
-// insertAthead(head,20);
-// print(head);
-// insertAthead(head,55);
-// print(head);
-// insertAthead(head,65);
-// print(head);
-insertAttail(tail,15);
-print(head);
-insertAttail(tail,25);
 
-print(head);
-insertAttail(tail,35);
-print(head);
-insertAtposition(head,tail,1,51);
-print(head);
-deleteNode(head,4);
-print(head);
+int primsMST(int V, vector<vector<pair<int,int>>> &adj) {
+    priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
+    vector<int> visited(V, 0);
 
+    int sum = 0;
+    pq.push({0, 0}); // {weight, node}
+
+    while (!pq.empty()) {
+        auto [wt, node] = pq.top();
+        pq.pop();
+
+        if (visited[node]) continue;
+        visited[node] = 1;
+        sum += wt;
+
+        for (auto [adjNode, edgeWt] : adj[node]) {
+            if (!visited[adjNode]) {
+                pq.push({edgeWt, adjNode});
+            }
+        }
+    }
+
+    return sum;
+}
+
+int main() {
+    int V = 4;
+    vector<vector<pair<int,int>>> adj(V);
+
+    adj[0].push_back({1,1});
+    adj[1].push_back({0,1});
+
+    adj[0].push_back({2,2});
+    adj[2].push_back({0,2});
+
+    adj[1].push_back({2,3});
+    adj[2].push_back({1,3});
+
+    adj[1].push_back({3,4});
+    adj[3].push_back({1,4});
+
+    adj[2].push_back({3,5});
+    adj[3].push_back({2,5});
+
+    cout << "Total weight of MST: " << primsMST(V, adj) << endl;
+    return 0;
 }
