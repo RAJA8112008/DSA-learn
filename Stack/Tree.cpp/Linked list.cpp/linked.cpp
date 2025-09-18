@@ -29,7 +29,6 @@ int primsMST(int V, vector<vector<pair<int,int>>> &adj) {
 int main() {
     int V = 4;
     vector<vector<pair<int,int>>> adj(V);
-
     adj[0].push_back({1,1});
     adj[1].push_back({0,1});
 
