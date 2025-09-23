@@ -1,48 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int primsMST(int V, vector<vector<pair<int,int>>> &adj) {
-    priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
-    vector<int> visited(V, 0);
-
-    int sum = 0;
-    pq.push({0, 0}); // {weight, node}
-
-    while (!pq.empty()) {
-        auto [wt, node] = pq.top();
-        pq.pop();
-
-        if (visited[node]) continue;
-        visited[node] = 1;
-        sum += wt;
-
-        for (auto [adjNode, edgeWt] : adj[node]) {
-            if (!visited[adjNode]) {
-                pq.push({edgeWt, adjNode});
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        // Using HashMap approach for O(n) solution
+        unordered_map<int,int> mp;  // value -> index
+        for (int i = 0; i < nums.size(); i++) {
+            int complement = target - nums[i];
+            if (mp.find(complement) != mp.end()) {
+                return {mp[complement], i};
             }
+            mp[nums[i]] = i;
         }
+        return {};
     }
-    return sum;
-}
+};
+
 
 int main() {
-    int V = 4;
-    vector<vector<pair<int,int>>> adj(V);
-    adj[0].push_back({1,1});
-    adj[1].push_back({0,1});
+    Solution sol;
 
-    adj[0].push_back({2,2});
-    adj[2].push_back({0,2});
+    // Example input
+    vector<int> nums = {2, 7, 11, 15};
+    int target = 9;
 
-    adj[1].push_back({2,3});
-    adj[2].push_back({1,3});
+    // Call twoSum
+    vector<int> ans = sol.twoSum(nums, target);
 
-    adj[1].push_back({3,4});
-    adj[3].push_back({1,4});
+    // Output result
+    if (!ans.empty()) {
+        cout << "Indices: " << ans[0] << ", " << ans[1] << endl;
+    } else {
+        cout << "No solution found!" << endl;
+    }
 
-    adj[2].push_back({3,5});
-    adj[3].push_back({2,5});
-
-    cout << "Total weight of MST: " << primsMST(V, adj) << endl;
     return 0;
 }
