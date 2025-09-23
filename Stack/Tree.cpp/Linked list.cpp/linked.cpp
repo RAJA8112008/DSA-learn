@@ -4,8 +4,7 @@ using namespace std;
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-
-        
+  
         // Using HashMap approach for O(n) solution
         unordered_map<int,int> mp;  // value -> index
         for (int i = 0; i < nums.size(); i++) {
@@ -18,7 +17,6 @@ public:
         return {};
     }
 };
-
 
 int main() {
     Solution sol;
