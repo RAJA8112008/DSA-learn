@@ -22,7 +22,6 @@ int primsMST(int V, vector<vector<pair<int,int>>> &adj) {
             }
         }
     }
-
     return sum;
 }
 
