@@ -23,7 +23,6 @@ int main() {
     // Example input
     vector<int> nums = {2, 7, 11, 15};
     int target = 9;
-
     // Call twoSum
     vector<int> ans = sol.twoSum(nums, target);
 
@@ -33,6 +32,5 @@ int main() {
     } else {
         cout << "No solution found!" << endl;
     }
-
     return 0;
 }
