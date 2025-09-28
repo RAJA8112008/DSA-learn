@@ -21,7 +21,7 @@ void insertAtEnd(struct Node** head, int value) {
     }
 
     struct Node* temp = *head;
-    while (temp->next != NULL) {
+    while ((*head)->next != NULL) {
         temp = temp->next;
     }
 
@@ -35,17 +35,23 @@ void deleteAtBeginning(struct Node** head) {
         printf("DLL is empty, nothing to delete!\n");
         return;
     }
-
-    struct Node* temp = *head;
-
-    *head = temp->next;  // move head to next node
-    if (*head != NULL) {
-        (*head)->prev = NULL;
+    struct Node* temp=*head;
+    if(temp->next!=NULL){
+        (*head)=temp->next;
     }
-
-    printf("Deleted element: %d\n", temp->data);
+    (*head)->prev=NULL;
     free(temp);
 }
+//     struct Node* temp = *head;
+
+//     *head = temp->next;  // move head to next node
+//     if (*head != NULL) {
+//         (*head)->prev = NULL;
+//     }
+
+//     printf("Deleted element: %d\n", temp->data);
+//     free(temp);
+// }
 
 // Display DLL
 void display(struct Node* head) {
