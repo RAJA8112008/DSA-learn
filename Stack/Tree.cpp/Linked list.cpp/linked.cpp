@@ -1,17 +1,16 @@
 #include<stdio.h>
 #include<stdlib.h>
-int sumofDigit(int num){
-   //base case
-   if(num==0){
-      return 0;
+  int fact(int num){
+   //base condition
+   if(num==0 ||num==1){
+      return 1;
    }
-   return (num%10)+sumofDigit(num/10);
-}
-
+   return (num)*fact(num-1);
+  }
 int main(){
    int num;
-   printf("Enter the number:");
+   printf("Enter the number");
    scanf("%d",&num);
-   
-   printf("Sum of digits: %d",sumofDigit(num));
+   // fact(num);
+   printf("%d",fact(num));
 }
