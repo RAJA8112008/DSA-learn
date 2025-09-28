@@ -12,11 +12,26 @@ struct Node* createNode(int data){
  }
  void print(struct Node* head){
       struct Node* temp=head;
-      while(temp!=NULL){
+       while(temp!=NULL){
          printf("%d ",temp->data);
          temp=temp->next;
       }
-      printf("\n");
+ }
+ struct Node* reverseLL(struct Node* head){
+    struct Node* curr=head;
+    struct Node* next=NULL;
+    struct Node* prev=NULL;
+    while(curr!=NULL){
+      next=curr->next;
+      curr->next=prev;
+      prev=curr;
+      curr=next;
+      // next = curr->next;    // save next
+       // curr->next = prev;    // reverse link
+        //prev = curr;          // move prev ahead
+        //curr = next;  
+    }
+    return prev;
  }
 int main(){
    struct Node* head=createNode(10);
@@ -25,4 +40,7 @@ int main(){
    head->next->next->next=createNode(40);
    head->next->next->next->next=createNode(50);
    print(head);
+   head=reverseLL(head);
+   print(head);
+
 }
