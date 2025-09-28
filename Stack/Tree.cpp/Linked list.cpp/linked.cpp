@@ -11,7 +11,7 @@ struct Node* creatCLL(int n){
      struct Node* nodes[n];
      for(int i=0;i<n;i++){
       nodes[i]=(struct Node*)malloc(sizeof(struct Node));
-      printf("Enter the data for %d",i+1);
+      printf("Enter the data for %d :",i+1);
       scanf("%d",&nodes[i]);
      }
      //circular
