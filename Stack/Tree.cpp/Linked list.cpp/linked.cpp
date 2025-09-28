@@ -30,18 +30,18 @@ void insertAtEnd(struct Node** head, int value) {
 }
 
 // Delete at beginning
-void deleteAtBeginning(struct Node** head) {
-    if (*head == NULL) {
-        printf("DLL is empty, nothing to delete!\n");
-        return;
-    }
-    struct Node* temp=*head;
-    if(temp->next!=NULL){
-        (*head)=temp->next;
-    }
-    (*head)->prev=NULL;
-    free(temp);
-}
+// void deleteAtBeginning(struct Node** head) {
+//     if (*head == NULL) {
+//         printf("DLL is empty, nothing to delete!\n");
+//         return;
+//     }
+//     struct Node* temp=*head;
+//     if(temp->next!=NULL){
+//         (*head)=temp->next;
+//     }
+//     (*head)->prev=NULL;
+//     free(temp);
+// }
 //     struct Node* temp = *head;
 
 //     *head = temp->next;  // move head to next node
@@ -52,6 +52,15 @@ void deleteAtBeginning(struct Node** head) {
 //     printf("Deleted element: %d\n", temp->data);
 //     free(temp);
 // }
+  void deleteAtend(struct Node**head){
+    struct Node* temp=*head;
+    while(temp->next!=NULL){
+            temp=temp->next;
+    }
+    temp->prev->next=NULL;
+    temp->prev=NULL;
+    free(temp);
+  }
 
 // Display DLL
 void display(struct Node* head) {
@@ -75,16 +84,16 @@ int main() {
     display(head);
 
     // Delete nodes from beginning
-    deleteAtBeginning(&head);
+   deleteAtend(&head);
     display(head);
 
-    deleteAtBeginning(&head);
+    deleteAtend(&head);
     display(head);
 
-    deleteAtBeginning(&head);
+   deleteAtend(&head);
     display(head);
 
-    deleteAtBeginning(&head);  // trying again when empty
+    deleteAtend(&head);  // trying again when empty
 
     return 0;
 }
