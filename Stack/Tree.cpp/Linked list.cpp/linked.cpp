@@ -4,6 +4,25 @@
     int data;
     struct Node* next;
  };
+
+
+   void insertAtpos(struct Node* head,int val,int pos){
+      //creation of node
+      struct Node* newNode=(struct Node*)malloc(sizeof(struct Node));
+       newNode->data=val;
+       //insert at head
+       if(pos==1){
+        struct Node* temp=head;
+         while(temp->next!=head){
+            temp=temp->next;
+         }
+         //insertion at  pos 1
+         temp->next=newNode;
+         newNode->next=head;
+         head=newNode;
+         return;
+       }
+   }
   //creation of LL 
 struct Node* creatCLL(int n){
      if(n<=0) return NULL;
