@@ -32,11 +32,12 @@ void insertAtEnd(struct Node** head, int value) {
    void deleteAtpos(struct Node** head,int pos){
      struct Node* temp=*head;
      int count=1;
-     while(temp->next!=NULL && count<pos){
+     while(temp!=NULL && count<pos){
         temp=temp->next;
+        count++;
      }
-          temp->next=temp->next->next;
-         temp->next->next->prev=temp;
+          temp->prev->next=temp->next;
+          temp->next=temp->prev;
          
    }
 // Delete at beginning
