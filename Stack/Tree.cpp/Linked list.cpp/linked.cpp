@@ -5,7 +5,7 @@
     struct Node* next;
  };
   //creation of LL 
-struct Node creatCLL(int n){
+struct Node* creatCLL(int n){
      if(n<=0) return NULL;
      //creation of Nodes
      struct Node* nodes[n];
@@ -25,6 +25,11 @@ struct Node creatCLL(int n){
      if(head==NULL){
        printf("Not NODES available");
      }
+      struct Node* temp=head;
+     do{
+        printf("%d->",temp->data);
+         temp=temp->next;
+     }while(temp!=head);
   }
 int main(){
     //number of nodes
@@ -33,4 +38,4 @@ int main(){
     scanf("%d",&n);
     struct Node* head=creatCLL(n);
       display(head);
-}
+};
