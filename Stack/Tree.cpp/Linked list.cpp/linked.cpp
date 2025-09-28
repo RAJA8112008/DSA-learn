@@ -29,6 +29,16 @@ void insertAtEnd(struct Node** head, int value) {
     newNode->prev = temp;
 }
 
+   void deleteAtpos(struct Node** head,int pos){
+     struct Node* temp=*head;
+     int count=1;
+     while(temp->next!=NULL && count<pos){
+        temp=temp->next;
+     }
+          temp->next=temp->next->next;
+         temp->next->next->prev=temp;
+         
+   }
 // Delete at beginning
 // void deleteAtBeginning(struct Node** head) {
 //     if (*head == NULL) {
@@ -82,18 +92,19 @@ int main() {
     insertAtEnd(&head, 30);
 
     display(head);
-
+   deleteAtpos(&head,2);
+    display(head);
     // Delete nodes from beginning
-   deleteAtend(&head);
-    display(head);
+//    deleteAtend(&head);
+//     display(head);
 
-    deleteAtend(&head);
-    display(head);
+//     deleteAtend(&head);
+//     display(head);
 
-   deleteAtend(&head);
-    display(head);
+//    deleteAtend(&head);
+//     display(head);
 
-    deleteAtend(&head);  // trying again when empty
+//     deleteAtend(&head);  // trying again when empty
 
     return 0;
 }
