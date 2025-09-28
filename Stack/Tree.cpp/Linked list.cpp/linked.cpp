@@ -21,7 +21,7 @@ void insertAtEnd(struct Node** head, int value) {
     }
 
     struct Node* temp = *head;
-    while ((*head)->next != NULL) {
+    while (temp->next != NULL) {
         temp = temp->next;
     }
 
