@@ -1,53 +1,84 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <stdio.h>
+#include <stdlib.h>
 
-class Solution {
-public:
-    // DFS to explore an island and record its shape
-    void dfs(vector<vector<int>>& grid, int i, int j, int m, int n,
-             vector<pair<int,int>>& shape, int baseI, int baseJ) {
-        
-        if(i < 0 || j < 0 || i >= m || j >= n || grid[i][j] != 1)
-            return;
-        
-        grid[i][j] = 0; // mark visited
-        shape.push_back({i - baseI, j - baseJ}); // store relative coordinates
-        
-        // Explore 4 directions
-        dfs(grid, i + 1, j, m, n, shape, baseI, baseJ);
-        dfs(grid, i - 1, j, m, n, shape, baseI, baseJ);
-        dfs(grid, i, j + 1, m, n, shape, baseI, baseJ);
-        dfs(grid, i, j - 1, m, n, shape, baseI, baseJ);
-    }
-    
-    int countDistinctIslands(vector<vector<int>>& grid) {
-        int m = grid.size();
-        int n = grid[0].size();
-        set<vector<pair<int,int>>> unique; // to store distinct shapes
-        
-        for(int i = 0; i < m; i++) {
-            for(int j = 0; j < n; j++) {
-                if(grid[i][j] == 1) {
-                    vector<pair<int,int>> shape;
-                    dfs(grid, i, j, m, n, shape, i, j); // start DFS from this cell
-                    unique.insert(shape); // insert island shape
-                }
-            }
-        }
-        return unique.size(); // number of distinct islands
-    }
+// Define node
+struct Node {
+    int data;
+    struct Node* prev;
+    struct Node* next;
 };
 
+// Insert at end (for creating DLL easily)
+void insertAtEnd(struct Node** head, int value) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = value;
+    newNode->next = NULL;
 
+    if (*head == NULL) {
+        newNode->prev = NULL;
+        *head = newNode;
+        return;
+    }
+
+    struct Node* temp = *head;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+
+    temp->next = newNode;
+    newNode->prev = temp;
+}
+
+// Delete at beginning
+void deleteAtBeginning(struct Node** head) {
+    if (*head == NULL) {
+        printf("DLL is empty, nothing to delete!\n");
+        return;
+    }
+
+    struct Node* temp = *head;
+
+    *head = temp->next;  // move head to next node
+    if (*head != NULL) {
+        (*head)->prev = NULL;
+    }
+
+    printf("Deleted element: %d\n", temp->data);
+    free(temp);
+}
+
+// Display DLL
+void display(struct Node* head) {
+    struct Node* temp = head;
+    printf("DLL: ");
+    while (temp != NULL) {
+        printf("%d <-> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
 
 int main() {
-    vector<vector<int>> grid = {
-        {1, 1, 0},
-        {0, 0, 1},
-        {0, 1, 1}
-    };
-    
-    Solution obj;
-    cout << "Number of distinct islands: " << obj.countDistinctIslands(grid) << endl;
+    struct Node* head = NULL;
+
+    // Create DLL
+    insertAtEnd(&head, 10);
+    insertAtEnd(&head, 20);
+    insertAtEnd(&head, 30);
+
+    display(head);
+
+    // Delete nodes from beginning
+    deleteAtBeginning(&head);
+    display(head);
+
+    deleteAtBeginning(&head);
+    display(head);
+
+    deleteAtBeginning(&head);
+    display(head);
+
+    deleteAtBeginning(&head);  // trying again when empty
+
     return 0;
 }
