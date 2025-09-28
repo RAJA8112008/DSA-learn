@@ -4,7 +4,7 @@ int tailRecursion(int num,int result){
     if(num==0 ||num==1){
       return result;
     }
-    return (num-1,num*result);
+    return tailRecursion(num-1,num*result);
 
 }
   int main(){
@@ -13,6 +13,6 @@ int tailRecursion(int num,int result){
   int result=1;
   printf("Enter the num:");
   scanf("%d",&num);
-   tailRecursion(num,result);
-    printf("%d",result);
+  result= tailRecursion(num,result);
+   printf("%d",result);
   }
