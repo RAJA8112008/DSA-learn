@@ -34,12 +34,12 @@
   for(int i=0;i<=top;i++){
        printf("%d",arr[i]);
   }
- };
+ }
  //check stack is full or not
 int main(){
   push(10);
   push(20);
   push(30);
   push(40);
-display()
+display();
 }
