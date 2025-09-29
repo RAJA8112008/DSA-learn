@@ -1,47 +1,46 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define MAX 5
- int arr[MAX];
- int top=-1;
- //check stack is empty  or not
- int isempty(){
-     return top==-1;
- }
- 
- int isfull(){
-     return top==MAX-1;
- }
- void  push(int data){
-    //check stack is full or not
-    if(isfull()){
-      printf("Overflow");
+struct node{
+  int  data;
+  struct node* next;
+};
+void insertAthead(struct node** head,int data){
+  struct node* newnode=(struct node*)malloc(sizeof(struct node));
+    newnode->data=data;
+    newnode->next=*head;
+    *head=newnode;
+  }
+  //insert at end
+  void insertAtend(struct node**head,int data){
+   struct node* newnode=(struct node*)malloc(sizeof(struct node));
+   newnode->data=data;
+    newnode->next=NULL;
+    if(*head==NULL){
+      *head=newnode;
+      return;
     }
-     top++;
-    arr[top]=data;
- }
- //pop function 
- int pop(){
-  if(isempty()){
-    printf("Stack  is empty");
+    struct node* temp=*head;
+      while(temp->next!=NULL){
+        temp=temp->next;
+        temp->next=newnode;
+      }
   }
-  return arr[top--];
- }
- //to display the overall  stack
- int display(){
-  if(isempty()){
-    printf("Stack is empty");
+  //insert at position
+  void insertAtpos(struct node** head,int  val,int pos){
+    struct node* newnode=(struct node*)malloc(sizeof(struct node));
+     newnode->data=val;
+    if(pos==1){
+      newnode->next=*head;
+      *head=newnode;
+      return;
+    }
+    //insertion at any pos
+    struct node* temp=*head;
+    int count=1;
+    while(temp->next!=NULL && count<pos){
+      temp=temp->next;
+    }
   }
-  for(int i=0;i<=top;i++){
-       printf("%d",arr[i]);
-  }
- }
- //check stack is full or not
 int main(){
-  push(10);
-  push(20);
-  push(30);
-  push(40);
-
-pop();
-display();
+  struct node* head=NULL;
 }
