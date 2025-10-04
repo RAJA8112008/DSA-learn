@@ -13,6 +13,7 @@ int maxValidPairs(vector<int>& a, vector<int>& b) {
         } else {
             i++;
         }
+        
     }
     return count;
 }
