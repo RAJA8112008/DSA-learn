@@ -1,25 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int maxValidPairs(vector<int>& a, vector<int>& b) {
-    int n = a.size();
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    int i = 0, j = 0, count = 0;
-    while(i < n && j < n) {
-        if(a[i] > b[j]) {
-            count++;
-            i++; j++;
+void maxSubArray(vector<int>& nums) {
+    int n = nums.size();
+    int currentSum = nums[0];
+    int maxSum = nums[0];
+
+    int start = 0, ansStart = 0, ansEnd = 0;
+
+    for (int i = 1; i < n; i++) {
+        if (nums[i] > currentSum + nums[i]) {
+            currentSum = nums[i];
+            start = i; // new subarray starts
         } else {
-            i++;
+            currentSum += nums[i];
         }
-        
+
+        if (currentSum > maxSum) {
+            maxSum = currentSum;
+            ansStart = start;
+            ansEnd = i;
+        }
     }
-    return count;
+
+    // Print results
+    cout << "Maximum Subarray Sum = " << maxSum << endl;
+    cout << "Subarray = [ ";
+    for (int i = ansStart; i <= ansEnd; i++) {
+        cout << nums[i] << " ";
+    }
+    cout << "]" << endl;
 }
+
 int main() {
-    vector<int> a = {4, 2, 5, 1};
-    vector<int> b = {3, 1, 4, 2};
-    cout << maxValidPairs(a, b) << endl;  // Output: 3
+    vector<int> nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    maxSubArray(nums);
     return 0;
 }
