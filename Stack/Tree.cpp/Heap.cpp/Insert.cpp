@@ -14,6 +14,7 @@ bool dfs(int node, int parent, vector<int> adj[], vector<int> &vis) {
     return false;
 }
 
+
 bool isTree(int V, vector<int> adj[]) {
     vector<int> vis(V, 0);
 
