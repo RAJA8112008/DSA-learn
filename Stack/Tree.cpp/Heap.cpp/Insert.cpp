@@ -14,7 +14,6 @@ bool dfs(int node, int parent, vector<int> adj[], vector<int> &vis) {
     return false;
 }
 
-
 bool isTree(int V, vector<int> adj[]) {
     vector<int> vis(V, 0);
 
@@ -29,7 +28,6 @@ bool isTree(int V, vector<int> adj[]) {
     // Step 3: Tree must have V-1 edges (can be checked outside)
     return true;
 }
-
 int main() {
     int V = 4; // vertices
     int E = 3; // edges
