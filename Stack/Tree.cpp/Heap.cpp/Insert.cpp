@@ -40,13 +40,11 @@ int main() {
     adj[2].push_back(1);
     adj[2].push_back(3);
     adj[3].push_back(2);
-
     // Edge condition
     if (E != V - 1) {
         cout << "Not a Tree";
         return 0;
     }
-
     if (isTree(V, adj))
         cout << "Graph is a Tree";
     else
