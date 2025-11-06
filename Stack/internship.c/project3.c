@@ -1,22 +1,51 @@
-#include <stdio.h>
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    vector<int> bfsOfGraph(int V, vector<int> adj[]) {
+        vector<int> bfs;          // stores BFS traversal
+        vector<int> visited(V, 0); // track visited nodes
+
+        queue<int> q;
+        q.push(0);                // start from node 0
+        visited[0] = 1;
+
+        while (!q.empty()) {
+            int node = q.front();
+            q.pop();
+            bfs.push_back(node);
+
+            // traverse all adjacent nodes
+            for (auto it : adj[node]) {
+                if (!visited[it]) {
+                    visited[it] = 1;
+                    q.push(it);
+                }
+            }
+        }
+        return bfs;
+    }
+};
 
 int main() {
-    char name[50];
-    int rollNo;
-    float marks;
+    int V = 5; // number of vertices
+    vector<int> adj[V];
 
-    printf("Enter student name: ");
-    scanf("%s", name);
+    // Example graph
+    adj[0] = {1, 2};
+    adj[1] = {0, 3};
+    adj[2] = {0, 4};
+    adj[3] = {1};
+    adj[4] = {2};
 
-    printf("Enter roll number: ");
-    scanf("%d", &rollNo);
+    Solution obj;
+    vector<int> result = obj.bfsOfGraph(V, adj);
 
-    printf("Enter marks: ");
-    scanf("%f", &marks);
+    cout << "BFS Traversal: ";
+    for (auto x : result)
+        cout << x << " ";
+    cout << endl;
 
-    printf("\n--- Student Details ---\n");
-    printf("Name: %s\n", name);
-    printf("Roll No: %d\n", rollNo);
-    printf("Marks: %.2f\n", marks);
-
+    return 0;
 }
